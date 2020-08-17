@@ -104,6 +104,7 @@ public class Frame extends JFrame {
 					this.loadedImage = ImageIO.read(opt.getSelectedFile());
 					double imageScalar = Math.max((double) loadedImage.getWidth() / displayLabel.getWidth(), (double) loadedImage.getHeight() / displayLabel.getHeight());
 					displayLabel.setIcon(new ImageIcon(Palette.resize(loadedImage, (int) (loadedImage.getWidth() / imageScalar), (int) (loadedImage.getHeight() / imageScalar))));
+					palette.createPalette(loadedImage, (double) scalingSlider.getValue() / 100, (double) toleranceSlider.getValue() / 100, (double) cutoffSlider.getValue() / 100); 
 				}
 			}catch(Exception err) {
 				JOptionPane.showMessageDialog(this, "Error opening file.\n" + err.toString());
